@@ -1,7 +1,15 @@
 import stats from "download-stats";
 
 export default defineEventHandler(async (event) => {
+    
     const query = getQuery(event);
+
+   
+
+    const repo = await $fetch(`https://api.npms.io/v2/package/${query.package} `, {
+   
+  })
+
   
     async function getStats() {
       try {
@@ -22,5 +30,8 @@ export default defineEventHandler(async (event) => {
   
     const result = await getStats();
     console.log(result);
-    return result;
+    // return result;
+    return repo;
+
   });
+
